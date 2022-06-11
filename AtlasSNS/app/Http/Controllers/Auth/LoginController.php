@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Auth;
 
 class LoginController extends Controller
@@ -40,13 +41,20 @@ class LoginController extends Controller
     }
 
     public function login(Request $request){
-        if($request->isMethod('post')){
+        if($request->isMethod('post')){ //isMethodでPOSTかGETかを判別
 
             $data=$request->only('mail','password');
             // ログインが成功したら、トップページへ
             //↓ログイン条件は公開時には消すこと
             if(Auth::attempt($data)){
                 return redirect('/top');
+
+            $username = \DB::table('users')->select('username')
+            ->where('mail','=','$data','=>','mail')
+            ->where('password','=','$data','=>','password')
+            ->get();
+            $request->session()->put('username',$username);
+
             }
         }
         return view("auth.login");
