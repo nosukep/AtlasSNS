@@ -31,6 +31,7 @@ Route::post('/added', 'Auth\RegisterController@added');
 
 //ログイン中のページ
 Route::get('/top','PostsController@index');
+Route::get('/logout','Auth\LoginController@logout');
 
 Route::get('/profile','UsersController@profile');
 
