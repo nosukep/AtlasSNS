@@ -11,10 +11,10 @@
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
-    <link rel="icon" href="画像URL" sizes="16x16" type="image/png" />
-    <link rel="icon" href="画像URL" sizes="32x32" type="image/png" />
-    <link rel="icon" href="画像URL" sizes="48x48" type="image/png" />
-    <link rel="icon" href="画像URL" sizes="62x62" type="image/png" />
+    <link rel="icon" href="/storage/images/atlas.png" sizes="16x16" type="image/png" />
+    <link rel="icon" href="/storage/images/atlas.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="/storage/images/atlas.png" sizes="48x48" type="image/png" />
+    <link rel="icon" href="/storage/images/atlas.png" sizes="62x62" type="image/png" />
     <!--iphoneのアプリアイコン指定-->
     <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     <!--OGPタグ/twitterカード-->
@@ -22,14 +22,16 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a><img src="images/logo.png"></a></h1>
-            <div id="">
-                <div id="">
-                    <p>{{ Session::get('username') }}さん<img src="images/arrow.png"></p>
+        <h1><a href="/top"><img class="site-logo" src="/storage/images/atlas.png" alt="サイトロゴ"></a></h1>
+        <!-- img src="{{ asset('storage/images/atlas.png') }}"でも可 -->
+        <!-- ↑ターミナルからシンボリックリンクの設定が必要 -->
+            <div class="accordion">
+                <div class="menu" onclick="toggle()">
+                    <p>〇〇さん<span class="accordion-arrow"></span> <img class="accordion-icon" src="images/arrow.png"></p>
                 <div>
-                <ul>
-                    <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
+                <ul class="menu-list">
+                    <li><a href="/top">HOME</a></li>
+                    <li><a href="/profile">プロフィール編集</a></li>
                     <li><a href="/logout">ログアウト</a></li>
                 </ul>
             </div>
@@ -58,7 +60,8 @@
     </div>
     <footer>
     </footer>
+    <script src="{{ asset('/js/app.js') }}"></script>
     <script src="JavaScriptファイルのURL"></script>
-    <script src="JavaScriptファイルのURL"></script>
+    <script src="{{ asset('/js/accordion.js' ) }}"></script>
 </body>
 </html>
