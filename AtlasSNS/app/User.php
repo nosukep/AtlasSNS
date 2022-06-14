@@ -16,7 +16,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'username', 'mail', 'password',
-    ];
+    ]; //ユーザーの情報を保存できるようにする。(対：$guarded 値の変更が不可。$fillableか$guardedどちらかのみ設定する。)
 
     /**
      * The attributes that should be hidden for arrays.

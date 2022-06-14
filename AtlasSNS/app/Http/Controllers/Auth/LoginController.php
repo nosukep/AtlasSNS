@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Auth;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -47,13 +48,9 @@ class LoginController extends Controller
             // ログインが成功したら、トップページへ
             //↓ログイン条件は公開時には消すこと
             if(Auth::attempt($data)){
-                return redirect('/top');
+                $users = User::get();
 
-            $username = \DB::table('users')->select('username')
-            ->where('mail','=','$data','=>','mail')
-            ->where('password','=','$data','=>','password')
-            ->get();
-            $request->session()->put('username',$username);
+                return redirect('/top')->with('username', $users['username']);
 
             }
         }

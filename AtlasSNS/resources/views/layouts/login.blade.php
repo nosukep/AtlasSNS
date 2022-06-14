@@ -27,7 +27,7 @@
         <!-- ↑ターミナルからシンボリックリンクの設定が必要 -->
             <div class="accordion">
                 <div class="menu" onclick="toggle()">
-                    <p>〇〇さん<span class="accordion-arrow"></span> <img class="accordion-icon" src="images/arrow.png"></p>
+                    <p>{{ Session::get('username') }}さん<span class="accordion-arrow"></span> <img class="accordion-icon" src="images/arrow.png"></p>
                 <div>
                 <ul class="menu-list">
                     <li><a href="/top">HOME</a></li>
