@@ -38,6 +38,7 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+        // ログイン済みユーザーはログイン及び登録画面に移動しようとしたとき、/topに移動する。
     }
 
     public function login(Request $request){
