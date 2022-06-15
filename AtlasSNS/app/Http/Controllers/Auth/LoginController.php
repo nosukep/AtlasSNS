@@ -51,7 +51,9 @@ class LoginController extends Controller
             if(Auth::attempt($data)){
                  $users = Auth::user();
 
-                return redirect('/top')->with('username', $users['username']);
+                return redirect('/top');
+                // ->with('username', $users['username']);
+                // ↑blade上で表示させるよう修正
 
             }
         }
