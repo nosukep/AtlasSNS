@@ -77,10 +77,13 @@ class RegisterController extends Controller
 
     public function register(Request $request){
         if($request->isMethod('post')){
-            $data = $request->input();
 
-            $this->create($data);
-            return redirect('added');
+            $request->session()->regenerate(); //セッションを再度設定。
+
+            $data = $request->input(); //フォームからの入力値を連想配列化して$dataに格納。
+
+            $this->create($data); //配列化したデータをusersテーブルにinsert。
+            return redirect('added')->with('username', $data['username']); //usernameセッションを持たせて/addedページを表示させる。
         }
         return view('auth.register');
     }
