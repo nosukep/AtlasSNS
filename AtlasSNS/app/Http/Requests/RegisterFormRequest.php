@@ -54,6 +54,7 @@ class RegisterFormRequest extends FormRequest
             'username.max' => ':attributeは255字以下で入力してください。',
             'mail.required' => ':attributeは必須です。',
             'mail.max' => ':attributeは255字以下で入力してください。',
+            'mail.email' => ':attributeはメールアドレスの形式入力してください。',
             'password.required' => ':attributeは必須です。',
             'password.min' => ':attributeは4文字以上で入力してください。',
             'password.confirmed' => ':attributeが一致しません。'
