@@ -28,7 +28,7 @@
             <div class="accordion">
                 <div class="menu" onclick="toggle()">
                 <!-- ↓Authファザードでログイン中のユーザー情報の中のusernameを取得 -->
-                <p>{{ Auth::user()->username }}さん<span class="accordion-arrow"></span> <img class="accordion-icon" src="images/arrow.png"></p>
+                <p>{{ Auth::user()->username }}さん<span class="accordion-arrow"></span><img class="accordion-icon" src={{ Auth::user()->images }}  alt="プロフィール画像"></p>
                 <div>
                 <ul class="menu-list">
                     <li><a href="/top">HOME</a></li>
