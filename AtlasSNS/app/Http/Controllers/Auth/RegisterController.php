@@ -97,11 +97,17 @@ class RegisterController extends Controller
             $request->session()->regenerate(); //セッションを再度設定。
 
             $data = $request->input(); //フォームからの入力値を連想配列化して$dataに格納。
-
-            $this->create($data); //配列化したデータをusersテーブルにinsert。
+            $request->
+            $this->create($data); //配列化したデータをusersテーブルにinsert。($this->create()でクラス内のcreateメソッドを呼び出し。)
             return redirect('added')->with('username', $data['username']); //usernameセッションを持たせて/addedページを表示させる。
         }
+        // return view('auth.register');
+        // 104行目をバリデーションがかかるのを避けるためにget専用のメソッドを作成して移設。
+    }
+
+    public function registerPage(Request $request){
         return view('auth.register');
+        // registerメソッドから移設。
     }
 
     public function added(){
