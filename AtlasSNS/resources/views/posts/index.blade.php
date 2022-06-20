@@ -2,24 +2,24 @@
 
 @section('content')
     <div class="container">
-        <div calss="user-icon">
-            <p>
+        <div class="post">
+            <div class="user-icon">
                 <img src={{ Auth::user()->images }} alt="プロフィール画像">
-            </p>
-        </div>
-        <div class="post-form">
-        {!! Form::open(['url' => 'top']) !!}
-        <div class="form-group">
-            {!! Form::input('text', 'newPost', null, ['required', 'class' => 'post-form', 'placeholder' => '投稿内容を入力してください']) !!}
-        </div>
-        <button type="submit" class="btn btn-success pull-right"></button>
-        {!! Form::close() !!}
+            </div>
+            <div class="form-group">
+                {!! Form::open(['url' => 'top']) !!}
+                {!! Form::textarea('textarea', null, ['required', 'class' => 'post-form', 'placeholder' => '投稿内容を入力してください', 'rows' => 3,]) !!}
+            </div>
+            <div class="form-btn">
+                <button type="submit" class="btn btn-success pull-right"><img src="/storage/images/post.png" alt="送信"></button>
+                {!! Form::close() !!}
+            </div>
         </div>
 
         <table>
         @foreach ($lists as $list)
           <tr>
-              <td>{{ $list->images }}</td>
+              <td><img src={{ $list->images }} alt="プロフィール画像"></td>
               <td>{{ $list->username }}</td>
               <td>{{ $list->post }}</td>
               <td>{{ $list->created_at }}</td>
