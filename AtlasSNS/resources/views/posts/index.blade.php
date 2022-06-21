@@ -8,7 +8,7 @@
             </div>
             <div class="form-group">
                 {!! Form::open(['url' => 'top']) !!}
-                {!! Form::textarea('textarea', null, ['required', 'class' => 'post-form', 'placeholder' => '投稿内容を入力してください', 'rows' => 3,]) !!}
+                {!! Form::textarea('newPost', null, ['required', 'class' => 'post-form', 'placeholder' => '投稿内容を入力してください', 'rows' => 3,]) !!}
             </div>
             <div class="form-btn">
                 <button type="submit" class="btn btn-success pull-right"><img src="/storage/images/post.png" alt="送信"></button>
