@@ -97,7 +97,6 @@ class RegisterController extends Controller
             $request->session()->regenerate(); //セッションを再度設定。
 
             $data = $request->input(); //フォームからの入力値を連想配列化して$dataに格納。
-            $request->
             $this->create($data); //配列化したデータをusersテーブルにinsert。($this->create()でクラス内のcreateメソッドを呼び出し。)
             return redirect('added')->with('username', $data['username']); //usernameセッションを持たせて/addedページを表示させる。
         }
