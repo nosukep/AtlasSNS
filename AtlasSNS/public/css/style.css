@@ -4,6 +4,18 @@ html {}
 
 body {}
 
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+    /* ←fontスタイルを適用させるために必須 */
+    font-size: 16px;
+    font-weight: 200;
+}
+
+
+
 /* header */
 header {
     background: #186AC9;
@@ -133,10 +145,6 @@ header {
     border: none;
 }
 
-.btn img {
-    width: 200%;
-}
-
 .post {
     display: flex;
     justify-content: center;
@@ -165,15 +173,56 @@ header {
     resize: none;
     outline: none;
     margin-top: 10px;
+    font-weight: 300;
 }
 
 ::placeholder {
     color: #E3E3E3;
+    font-family: inherit;
+    /* ←fontスタイルを適用させるために必須 */
     font-size: 16px;
-    font-weight: 100;
-    /* font-weightが反映されない？ */
+    font-weight: 200;
 }
 
 .form-btn {
     margin: 40px 0 0 0;
 }
+
+table {
+    width: 100%;
+}
+
+table tbody tr {
+    border-bottom: 1px solid #C1C1C1;
+}
+
+table tbody tr .user-icon {
+    margin-left: 50px;
+}
+
+/* table tbody tr td {
+    display: inline-block;
+} */
+
+table td a img {
+    height: 30px;
+}
+
+/* table tbody tr {
+    width: 240px;
+    height: 240px;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    grid-auto-flow: column;
+}
+
+table tbody tr td {
+    display: grid;
+    place-items: center;
+}
+
+table tbody tr td:first-child {
+    background: pink;
+} */
