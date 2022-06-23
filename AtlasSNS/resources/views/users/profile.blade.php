@@ -21,10 +21,10 @@
 
 {{ Form::label('username', 'ユーザー名') }}
 <!-- ↑ label('name属性','ラベル表示名') -->
-{{ Form::text('username',null,['class' => 'input']) }}
+{{ Form::text('username',Auth::user()->username,['class' => 'input']) }}
 
 {{ Form::label('mail', 'メールアドレス') }}
-{{ Form::text('mail',null,['class' => 'input']) }}
+{{ Form::text('mail',Auth::user()->mail,['class' => 'input']) }}
 
 {{ Form::label('password', 'パスワード') }}
 {{ Form::password('password',null,['class' => 'input']) }}
@@ -33,8 +33,7 @@
 {{ Form::password('password_confirmation',null,['class' => 'input']) }}
 
 {{ Form::label('bio', '自己紹介文') }}
-{{ Form::text('mail',null,['class' => 'input']) }}
-<!-- {{ Form::textarea('bio', null, ['class' => 'input', 'rows' => 3,]) }} -->
+{{ Form::text('bio',Auth::user()->bio,['class' => 'input']) }}
 
 {{ Form::label('images', 'プロフィール画像') }}
 {{ Form::file('images',null,['class' => 'input', 'accept' => 'image/jpeg, image/png']) }}
