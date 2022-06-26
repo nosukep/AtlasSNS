@@ -19,6 +19,8 @@
   </div>
   @endif
 
+{!! Form::hidden('id', Auth::user()->id) !!}
+ @csrf
 {{ Form::label('username', 'ユーザー名') }}
 <!-- ↑ label('name属性','ラベル表示名') -->
 {{ Form::text('username',Auth::user()->username,['class' => 'input']) }}

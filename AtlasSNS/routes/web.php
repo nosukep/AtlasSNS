@@ -37,6 +37,7 @@ Route::get('post/{id}/delete', 'PostsController@delete');
 Route::get('/logout','Auth\LoginController@logout');
 
 Route::get('/profile','UsersController@profile');
+Route::post('/profile','UsersController@updateProfile');
 
 Route::get('/search','UsersController@index');
 
