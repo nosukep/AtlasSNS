@@ -51,11 +51,13 @@ class ProfileFormRequest extends FormRequest
     {
         return [
             'username.required' => ':attributeは必須です。',
-            'username.max' => ':attributeは255字以下で入力してください。',
+            'username.max' => ':attributeは12字以下で入力してください。',
+            'username.min' => ':attributeは2字以上で入力してください。',
             'mail.required' => ':attributeは必須です。',
-            'mail.max' => ':attributeは255字以下で入力してください。',
+            'mail.max' => ':attributeは40字以下で入力してください。',
+            'mail.min' => ':attributeは5字以上で入力してください。',
             'mail.email' => ':attributeはメールアドレスの形式入力してください。',
-            'password.min' => ':attributeは150文字以下で入力してください。',
+            'bio.max' => ':attributeは150字以下で入力してください。'
         ];
     }
 }
