@@ -28,6 +28,25 @@ class UsersController extends Controller
                     'bio' => $data['bio']
                 ]);
 
+            // 画像ファイルが選択されていればusersテーブルを更新する。
+            if (!empty($data['images'])) {
+                if ($file = $request->imgpath) {
+                    $fileName = time() . $file->getClientOriginalName();
+                    $target_path = '/storage.images';
+                    $file->move($target_path, $fileName);
+                } else {
+                    $fileName = "";
+                }
+
+                \DB::table('users')
+                ->where(['id' => $data['id']])
+                ->update([
+                    'images' => $fileName
+                ]);
+
+                }
+
+
             // パスワードの記入欄が入力されていればハッシュ化して更新する。
             if (!empty($data['password'])) {
 
