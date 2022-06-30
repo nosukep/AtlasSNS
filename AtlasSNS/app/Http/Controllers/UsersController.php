@@ -14,11 +14,15 @@ class UsersController extends Controller
     }
 
     public function updateProfile(ProfileFormRequest $request){
+        // dd('check');
         if($request->isMethod('post')){
-
             $request->session()->regenerate(); //セッションを再度設定。
 
             $data = $request->input(); //フォームからの入力値を連想配列化して$dataに格納。
+
+            $image = $request->file('images'); //フォームからの入力ファイルを連想配列化して$imageに格納。
+
+            // dd($image);
             // DBへ更新依頼
              \DB::table('users')
                 ->where(['id' => $data['id']])
@@ -29,19 +33,22 @@ class UsersController extends Controller
                 ]);
 
             // 画像ファイルが選択されていればusersテーブルを更新する。
-            if (!empty($data['images'])) {
-                if ($file = $request->imgpath) {
-                    $fileName = time() . $file->getClientOriginalName();
-                    $target_path = '/storage.images';
-                    $file->move($target_path, $fileName);
-                } else {
-                    $fileName = "";
-                }
+            if (!empty($image)) {
+                // フォームから送信した画像のファイル名取得
+                $fileName =request()->file('images')->getClientOriginalName();
 
+                // dd($image);
+
+                // フォームから送信した画像を/storage/imagesに保存
+                $file=$image->move('storage/images', $fileName);
+
+                // dd($file);
+
+                // フォームから送信した画像を/storage/imagesに保存
                 \DB::table('users')
                 ->where(['id' => $data['id']])
                 ->update([
-                    'images' => $fileName
+                    'images' => '/storage/images/' . $fileName
                 ]);
 
                 }
