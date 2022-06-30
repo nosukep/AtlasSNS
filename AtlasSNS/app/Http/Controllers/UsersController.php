@@ -40,7 +40,7 @@ class UsersController extends Controller
                 // dd($image);
 
                 // フォームから送信した画像を/storage/imagesに保存
-                $file=$image->move('storage/images', $fileName);
+                $image->move('storage/images', $fileName);
 
                 // dd($file);
 
