@@ -57,13 +57,13 @@ class UsersController extends Controller
             // パスワードの記入欄が入力されていればハッシュ化して更新する。
             if (!empty($data['password'])) {
 
-                $request->validate([
-                 'password' => 'min:4|confirmed'
-                 ],
-                [
-                'password.min' => 'パスワードは4文字以上で入力してください。',
-                'password.confirmed' => 'パスワードが一致しません。',
-                ]);
+                // $request->input('passwords')->validate([
+                //  'password' => 'min:4|confirmed'
+                //  ],
+                // [
+                // 'password.min' => 'パスワードは4文字以上で入力してください。',
+                // 'password.confirmed' => 'パスワードが一致しません。',
+                // ]);
 
                 \DB::table('users')
                 ->where(['id' => $data['id']])

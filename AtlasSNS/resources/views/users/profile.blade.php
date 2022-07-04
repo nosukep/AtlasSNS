@@ -7,7 +7,7 @@
     <img src={{ Auth::user()->images }} alt="プロフィール画像">
   </div>
 
-  {!! Form::open(['url' => '/profile', "enctype" => "multipart/form-data"]) !!}
+  {!! Form::open(['url' => '/profile', 'enctype' => 'multipart/form-data']) !!}
   @if($errors->any())
   <div class="alert alert-danger">
   <ul>
@@ -37,7 +37,7 @@
 {{ Form::text('bio',Auth::user()->bio,['class' => 'input']) }}
 
 {{ Form::label('images', 'プロフィール画像') }}
-{{ Form::file('images',null,['class' => 'input']) }}
+{{ Form::file('images',null,['class' => 'input', 'accept' => 'image/jpeg, image/png']) }}
 
 {{ Form::submit('更新') }}
 
