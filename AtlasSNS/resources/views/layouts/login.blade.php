@@ -64,5 +64,6 @@
     <script src="{{ asset('/js/app.js') }}"></script>
     <script src="JavaScriptファイルのURL"></script>
     <script src="{{ asset('/js/accordion.js' ) }}"></script>
+    <script src="{{ asset('/js/modal.js' ) }}"></script>
 </body>
 </html>
