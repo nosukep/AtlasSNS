@@ -40,17 +40,17 @@
         @endforeach
         <!-- モーダルの中身 -->
         <div class="modal js-modal">
-            <div class="modal__bg js-modal-close"></div>
-            <div class="modal__content">
-                <form action="/post/{id}/update" method="post">
-                    <textarea name="post/{id}/update" class="modal-post" cols="30" rows="10"></textarea>
-                    <input type="hidden" name="" class="modal_id" value="">
-                    <button type="submit" class="btn btn-success pull-right"><img src="/storage/images/edit.png" alt="編集"></button>
-                    {{ csrf_field() }}
-                </form>
-                <a class="js-modal-close" href="">閉じる</a>
-            </div>
+        <div class="modal__bg js-modal-close"></div>
+        <div class="modal__content">
+           <form action="post/update" method="">
+                <textarea name="upPost" class="modal_post"></textarea>
+                <input type="hidden" name="id" class="modal_id" value="">
+                <input type="submit" value="更新">
+                {{ csrf_field() }}
+           </form>
+           <a class="js-modal-close" href="">閉じる</a>
         </div>
+    </div>
         </table>
     </div>
 

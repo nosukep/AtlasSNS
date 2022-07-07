@@ -33,6 +33,8 @@ Route::post('/added', 'Auth\RegisterController@added');
 Route::get('/top','PostsController@index');
 Route::post('/top','PostsController@create');
 Route::get('post/{id}/delete', 'PostsController@delete');
+Route::get('post/update', 'PostsController@update');
+Route::post('post/update', 'PostsController@update');
 
 Route::get('/logout','Auth\LoginController@logout');
 
