@@ -91,6 +91,10 @@ class UsersController extends Controller
         $username = $request->input('search');
         //  dd($username);
 
+        $word = '「' . $username . '」の検索結果';
+
+        // dd($word);
+
 
 
         if (!empty($username)) {
