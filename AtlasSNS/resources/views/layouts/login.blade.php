@@ -18,6 +18,8 @@
     <!--iphoneのアプリアイコン指定-->
     <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     <!--OGPタグ/twitterカード-->
+    <!-- fontawesome -->
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
 <body>
     <header>

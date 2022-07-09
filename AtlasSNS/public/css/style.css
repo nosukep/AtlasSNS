@@ -226,3 +226,7 @@ table tbody tr td {
 table tbody tr td:first-child {
     background: pink;
 } */
+
+#search {
+    display: flex;
+}
