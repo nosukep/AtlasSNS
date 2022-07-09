@@ -29,8 +29,9 @@
         <table>
         @foreach ($lists as $list)
           <tr>
-              <td class="user-icon"><img src={{ $list->images }} alt="プロフィール画像"></td>
-              <td>{{ $list->username }}</td>
+              <td class="user-icon"><img src={{ $list->user->images }} alt="プロフィール画像"></td>
+              <!-- usersテーブルの情報を取得するにはPostモデルで定義しているuserメソッドを経由してusersテーブルの情報を取得する必要がある。 -->
+              <td>{{ $list->user->username }}</td>
               <td>{{ $list->post }}</td>
               <td>{{ $list->created_at }}</td>
               <td><a class="js-modal-open" href="" post="{{ $list->post }}" post_id="{{ $list->id }}"><img src="/storage/images/edit.png" alt="編集"></a></td>
