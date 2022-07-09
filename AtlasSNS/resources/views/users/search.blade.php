@@ -11,6 +11,7 @@
           <button type="submit" class="btn btn-success pull-right"><i class="fa fa-search"></i></button>
           {!! Form::close() !!}
       </div>
+      <a href="/search">一覧に戻る</a>
   </div>
 
           <table>

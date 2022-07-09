@@ -79,9 +79,28 @@ class UsersController extends Controller
 
     }
 
-    public function search(){
+    public function searchPage(){
 
         $list = User::get();
+
+        return view('users.search',['lists' => $list]);
+    }
+
+    public function search(Request $request){
+
+        $username = $request->input('search');
+        //  dd($username);
+
+
+
+        if (!empty($username)) {
+            // キーワードのメタ文字をエスケープしてユーザー名を検索
+            $pat = '%' . addcslashes($username, '%_\\') . '%';
+            $list = User::where('username', 'like', '%' . $pat . '%')->get();
+
+            // dd($list);
+        } else {
+        }
 
         return view('users.search',['lists' => $list]);
     }
