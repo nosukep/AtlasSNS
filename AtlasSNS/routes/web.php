@@ -39,7 +39,7 @@ Route::get('/logout','Auth\LoginController@logout');
 Route::get('/profile','UsersController@profile');
 Route::post('/profile','UsersController@updateProfile');
 
-Route::get('/search','UsersController@index');
+Route::get('/search','UsersController@search');
 
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
