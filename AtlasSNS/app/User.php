@@ -26,4 +26,33 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /*
+    *フォローされているユーザーを取得
+    *引数(接続先,中間テーブル,接続元(フォローされている人、つまりユーザー)が参照する中間テーブルのカラム,接続先(フォローしている人、つまりフォロワー)が参照する中間テーブルのカラム)
+    */
+    public function followers()
+    {
+        return $this->belongsToMany(
+            'App\Models\User',
+            'follows',
+            'followed_id',
+            'following_id'
+        );
+    }
+
+    /*
+    *フォローしているユーザーを取得
+    *引数(接続先,中間テーブル,接続元(フォローする人)が参照する中間テーブルのカラム,接続先(フォローされる人)が参照する中間テーブルのカラム)
+    */
+
+    public function follows()
+    {
+        return $this->belongsToMany(
+            'App\Models\User',
+            'follows',
+            'following_id',
+            'followed_id'
+        );
+    }
 }
