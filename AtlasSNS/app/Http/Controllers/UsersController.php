@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ProfileFormRequest;
 use Validator;
 use App\User;
+use App\Follow;
+use Auth;
 
 class UsersController extends Controller
 {
@@ -81,7 +83,8 @@ class UsersController extends Controller
 
     public function searchPage(){
 
-        $list = User::get();
+        // ログインユーザーはリストに表示させない
+        $list = User::where("id" , "!=" , Auth::user()->id)->get();
 
         return view('users.search',['lists' => $list]);
     }
@@ -106,6 +109,42 @@ class UsersController extends Controller
         } else {
         }
 
+        return view('users.search',['lists' => $list]);
+    }
+
+    public function follow(Request $request){
+        $follow = Auth::user()->id;
+        $follower = $request->input('following_id');
+        // dd($follower);
+
+        Follow::firstOrCreate(
+            ['following_id' => $follow,
+            'followed_id' => $follower,]
+        );
+
+        // ログインユーザーはリストに表示させない
+        $list = User::where("id" , "!=" , Auth::user()->id)->get();
+        return view('users.search',['lists' => $list]);
+    }
+
+    public function unfollow(Request $request){
+        $follow = Auth::user()->id;
+        $follower = $request->input('unfollowing_id');
+        // dd($follower);
+
+        $delete = Follow::where('following_id', $follow)
+        ->where('followed_id', $follower)
+        ->first();
+
+        // dd($delete);
+
+        if($delete) {
+            $delete->delete();
+            // return false;
+        }
+
+        // ログインユーザーはリストに表示させない
+        $list = User::where("id" , "!=" , Auth::user()->id)->get();
         return view('users.search',['lists' => $list]);
     }
 }
