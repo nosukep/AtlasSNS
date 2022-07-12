@@ -92,13 +92,8 @@ class UsersController extends Controller
     public function search(Request $request){
 
         $username = $request->input('search');
-        //  dd($username);
-
-        $word = '「' . $username . '」の検索結果';
-
+        // dd($username);
         // dd($word);
-
-
 
         if (!empty($username)) {
             // キーワードのメタ文字をエスケープしてユーザー名を検索
@@ -109,7 +104,7 @@ class UsersController extends Controller
         } else {
         }
 
-        return view('users.search',['lists' => $list]);
+        return view('users.search',['lists' => $list],compact('username'));
     }
 
     public function follow(Request $request){

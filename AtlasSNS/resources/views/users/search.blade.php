@@ -12,6 +12,9 @@
           {!! Form::close() !!}
       </div>
       <a href="/search">一覧に戻る</a>
+      @if(!empty($username))
+      {{ $username }}の検索結果
+      @endif
   </div>
 
         <table>
