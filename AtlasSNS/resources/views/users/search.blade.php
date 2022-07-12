@@ -19,6 +19,21 @@
           <tr>
               <td class="user-icon"><img src={{ $list->images }} alt="プロフィール画像"></td>
               <td>{{ $list->username }}</td>
+              <td>
+                <form action="follow" method="post" class="follow-btn">
+                <input type="hidden" name="following_id" class="following_id" value="{{ $list->id }}">
+                <input type="submit" value="フォローする">
+                {{ csrf_field() }}
+                </form>
+              </td>
+              <td>
+                <form action="unfollow" method="post" class="unfollow-btn">
+                <input type="hidden" name="unfollowing_id" class="unfollowing_id" value="{{ $list->id }}">
+                <input type="submit" value="フォロー解除">
+                {{ csrf_field() }}
+                </form>
+              </td>
+
           </tr>
           @endforeach
         </table>
