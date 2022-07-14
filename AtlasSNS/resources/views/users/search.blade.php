@@ -22,13 +22,7 @@
           <tr>
               <td class="user-icon"><img src={{ $list->images }} alt="プロフィール画像"></td>
               <td>{{ $list->username }}</td>
-              <td>
-                <form action="follow" method="post" class="follow-btn">
-                <input type="hidden" name="following_id" class="following_id" value="{{ $list->id }}">
-                <input type="submit" value="フォローする">
-                {{ csrf_field() }}
-                </form>
-              </td>
+              @if(Auth::id() == $list->following_id  )
               <td>
                 <form action="unfollow" method="post" class="unfollow-btn">
                 <input type="hidden" name="unfollowing_id" class="unfollowing_id" value="{{ $list->id }}">
@@ -36,7 +30,15 @@
                 {{ csrf_field() }}
                 </form>
               </td>
-
+              @else
+              <td>
+                <form action="follow" method="post" class="follow-btn">
+                <input type="hidden" name="following_id" class="following_id" value="{{ $list->id }}">
+                <input type="submit" value="フォローする">
+                {{ csrf_field() }}
+                </form>
+              </td>
+              @endif
           </tr>
           @endforeach
         </table>

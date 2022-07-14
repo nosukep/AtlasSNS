@@ -34,7 +34,7 @@ class User extends Authenticatable
     public function followers()
     {
         return $this->belongsToMany(
-            'App\Models\User',
+            'App\User',
             'follows',
             'followed_id',
             'following_id'
@@ -49,7 +49,7 @@ class User extends Authenticatable
     public function follows()
     {
         return $this->belongsToMany(
-            'App\Models\User',
+            'App\User',
             'follows',
             'following_id',
             'followed_id'

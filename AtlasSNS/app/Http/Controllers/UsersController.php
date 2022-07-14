@@ -84,7 +84,8 @@ class UsersController extends Controller
     public function searchPage(){
 
         // ログインユーザーはリストに表示させない
-        $list = User::where("id" , "!=" , Auth::user()->id)->get();
+        $list = User::where("id" , "!=" , Auth::user()->id)->with('followers')->get();
+        // dd($list);
 
         return view('users.search',['lists' => $list]);
     }
@@ -98,7 +99,7 @@ class UsersController extends Controller
         if (!empty($username)) {
             // キーワードのメタ文字をエスケープしてユーザー名を検索
             $pat = '%' . addcslashes($username, '%_\\') . '%';
-            $list = User::where('username', 'like', '%' . $pat . '%')->get();
+            $list = User::where("id" , "!=" , Auth::user()->id)->where('username', 'like', '%' . $pat . '%')->get();
 
             // dd($list);
         } else {
