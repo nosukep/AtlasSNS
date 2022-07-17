@@ -6,8 +6,8 @@
   <h1>Follow List</h1>
   <ul class="follow-images">
     @foreach ($lists as $list)
-    <li><a href=""><img src={{ $list->images }} alt="プロフィール画像{{ $list->id }}"></a></li>
     <li>{{ $list->username }}</li>
+    <li><a href=""><img src={{ $list->images }} alt="プロフィール画像{{ $list->id }}"></a></li>
     @endforeach
   </ul>
 </div>
