@@ -22,6 +22,7 @@
           <tr>
               <td class="user-icon"><img src={{ $list->images }} alt="プロフィール画像"></td>
               <td>{{ $list->username }}</td>
+              <!-- ログインユーザーがisFollowingメソッドを使って各ユーザーをフォローしているかどうかを判断してボタンの表示を切り替える。 -->
               <!-- 「auth()->user()」はauthヘルパーの記述方法。「Auth::user()」（authファザード）と同義 -->
               @if (auth()->user()->isFollowing($list->id))
               <td>
