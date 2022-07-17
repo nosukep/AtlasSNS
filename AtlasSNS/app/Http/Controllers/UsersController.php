@@ -143,4 +143,12 @@ class UsersController extends Controller
         $list = User::where("id" , "!=" , Auth::user()->id)->get();
         return view('users.search',['lists' => $list]);
     }
+
+    public function followList(){
+        return view('follows.followList');
+    }
+
+    public function followerList(){
+        return view('follows.followerList');
+    }
 }
