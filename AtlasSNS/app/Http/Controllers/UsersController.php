@@ -156,6 +156,12 @@ class UsersController extends Controller
     }
 
     public function followerList(){
-        return view('follows.followerList');
+        // ログインユーザーはリストに表示させない
+        // フォローされているのユーザーのみ表示
+        $list = User::whereIn('id', Auth::user()->followers()->pluck('following_id'))->latest()->get();
+
+        $post = Post::with('user')->get();
+
+        return view('follows.followerList',['lists' => $list],['posts' => $post]);
     }
 }
