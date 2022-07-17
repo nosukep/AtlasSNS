@@ -27,6 +27,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function post(){
+        return $this->hasMany('App\Post');
+    }
+
+
     /*
     *フォローされているユーザーを取得
     *引数(接続先,中間テーブル,接続元(フォローされている人、つまりユーザー)が参照する中間テーブルのカラム,接続先(フォローしている人、つまりフォロワー)が参照する中間テーブルのカラム)

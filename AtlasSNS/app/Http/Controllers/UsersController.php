@@ -7,6 +7,7 @@ use App\Http\Requests\ProfileFormRequest;
 use Validator;
 use App\User;
 use App\Follow;
+use App\Post;
 use Auth;
 
 class UsersController extends Controller
@@ -145,7 +146,13 @@ class UsersController extends Controller
     }
 
     public function followList(){
-        return view('follows.followList');
+        // ログインユーザーはリストに表示させない
+        // フォロー中のユーザーのみ表示
+        $list = User::whereIn('id', Auth::user()->follows()->pluck('followed_id'))->latest()->get();
+
+        $post = Post::with('user')->get();
+
+        return view('follows.followList',['lists' => $list],['posts' => $post]);
     }
 
     public function followerList(){
