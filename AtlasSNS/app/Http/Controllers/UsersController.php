@@ -148,6 +148,10 @@ class UsersController extends Controller
     public function followList(){
         // ログインユーザーはリストに表示させない
         // フォロー中のユーザーのみ表示
+        // User::　Userモデルの中の
+        // whereIn('id')　idが
+        // Auth::user()->follows()->pluck('followed_id')　自分がフォローしているユーザーの中でフォロワーが自分であるユーザーのidを取得して
+        // latest()->get()　最新順に取得する
         $list = User::whereIn('id', Auth::user()->follows()->pluck('followed_id'))->latest()->get();
 
         $post = Post::with('user')->get();
