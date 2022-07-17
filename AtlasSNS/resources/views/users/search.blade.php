@@ -22,7 +22,8 @@
           <tr>
               <td class="user-icon"><img src={{ $list->images }} alt="プロフィール画像"></td>
               <td>{{ $list->username }}</td>
-              @if(Auth::id() == $list->following_id  )
+              <!-- 「auth()->user()」はauthヘルパーの記述方法。「Auth::user()」（authファザード）と同義 -->
+              @if (auth()->user()->isFollowing($list->id))
               <td>
                 <form action="unfollow" method="post" class="unfollow-btn">
                 <input type="hidden" name="unfollowing_id" class="unfollowing_id" value="{{ $list->id }}">

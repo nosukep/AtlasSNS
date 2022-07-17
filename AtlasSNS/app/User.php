@@ -55,4 +55,18 @@ class User extends Authenticatable
             'followed_id'
         );
     }
+
+     // フォローしているか
+    public function isFollowing(Int $user_id)
+    {
+        // booleanで値の有無(真偽)確認
+        // first(['id'])やfind(['id'])だと値を取得しようとして、bladeのforeachと相性が悪くてエラーになる。
+        return (boolean) $this->follows()->where('followed_id', $user_id)->exists();
+    }
+
+    // フォローされているか
+    public function isFollowed(Int $user_id)
+    {
+        return (boolean) $this->followers()->where('following_id', $user_id)->exists();
+    }
 }
