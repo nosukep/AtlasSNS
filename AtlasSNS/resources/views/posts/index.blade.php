@@ -35,8 +35,10 @@
 
               <td>{{ $list->post }}</td>
               <td>{{ $list->created_at }}</td>
+              @if ($list->user->id == Auth::user()->id)
               <td><a class="btn btn-primary" href="/post/{{$list->id}}/update-form"><img src="/storage/images/edit.png" alt="編集"></a></td>
               <td><a class="btn btn-danger" href="/post/{{$list->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')"><img src="/storage/images/trash.png" alt="削除"></a></td>
+              @endif
           </tr>
         @endforeach
         </table>
