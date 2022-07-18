@@ -154,7 +154,7 @@ class UsersController extends Controller
         // latest()->get()　最新順に取得する
         $list = User::whereIn('id', Auth::user()->follows()->pluck('followed_id'))->latest()->get();
 
-        $post = Post::with('user')->get();
+        $post = Post::with('user')->latest()->get();
 
         return view('follows.followList',['lists' => $list],['posts' => $post]);
     }
@@ -164,7 +164,7 @@ class UsersController extends Controller
         // フォローされているのユーザーのみ表示
         $list = User::whereIn('id', Auth::user()->followers()->pluck('following_id'))->latest()->get();
 
-        $post = Post::with('user')->get();
+        $post = Post::with('user')->latest()->get();
 
         return view('follows.followerList',['lists' => $list],['posts' => $post]);
     }

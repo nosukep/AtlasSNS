@@ -27,8 +27,8 @@ class PostsController extends Controller
         // ->join('users', 'posts.user_id', '=', 'users.id') //
         // ->get();
 
-        // Post.phpのuserメソッドを使ってusersテーブルが紐づいた状態のpostsテーブルの情報を取得。
-        $list = Post::with('user')->get();
+        // Post.phpのuserメソッドを使ってusersテーブルが紐づいた状態のpostsテーブルの情報を最新順に取得。
+        $list = Post::with('user')->whereIn('user_id', Auth::user()->follows()->pluck('followed_id'))->orWhere('user_id', Auth::user()->id)->latest()->get();
 
         return view('posts.index',['lists' => $list]);
     }
