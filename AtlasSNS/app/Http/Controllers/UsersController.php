@@ -169,8 +169,13 @@ class UsersController extends Controller
         return view('follows.followerList',['lists' => $list],['posts' => $post]);
     }
 
-    public function profile() {
-        return view('users.profile');
+    public function profile($id) {
+        // get送信されたidをもとにユーザー情報を取得
+        $user = User::where('id', $id)
+              ->get();
+        $post = Post::with('user')->where('user_id', $id)->latest()->get();
+        // dd($user);
+        return view('users.profile', ['users' => $user],['posts' => $post]);
     }
 
 }
