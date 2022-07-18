@@ -48,4 +48,4 @@ Route::post('/unfollow','UsersController@unfollow');
 Route::get('/follow-list','UsersController@followList');
 Route::get('/follower-list','UsersController@followerList');
 
-Route::get('/profile','UsersController@profile');
+Route::get('/profile/{id}','UsersController@profile');

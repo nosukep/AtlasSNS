@@ -7,7 +7,7 @@
   <ul class="follow-images">
     @foreach ($lists as $list)
     <li>{{ $list->username }}</li>
-    <li><a href=""><img src={{ $list->images }} alt="プロフィール画像{{ $list->id }}"></a></li>
+    <li><a href="/profile/{{$list->id}}"><img src={{ $list->images }} alt="プロフィール画像"></a></li>
     @endforeach
   </ul>
 </div>
@@ -17,7 +17,7 @@
         @foreach ($posts as $post)
         @if (auth()->user()->isFollowed($post->user->id))
           <tr>
-              <td class="user-icon"><img src="{{ $post->user->images }}" alt=""></td>
+              <td class="user-icon"><a href="/profile/{{$post->user->id}}"><img src="{{ $post->user->images }}" alt=""></a></td>
               <td class="">{{ $post->user->username }}</td>
               <td class="">{{ $post->post }}</td>
               <td class="">{{ $post->created_at }}</td>
