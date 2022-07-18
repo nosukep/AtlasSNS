@@ -29,7 +29,11 @@
         <table>
         @foreach ($lists as $list)
           <tr>
-               <td class="user-icon"><a href="/profile"><img src={{ $list->user->images }} alt="プロフィール画像"></a></td>
+               @if ($list->user->id == Auth::user()->id)
+               <td class="user-icon"><a href="/my-profile"><img src={{ $list->user->images }} alt="プロフィール画像"></a></td>
+               @else
+               <td class="user-icon"><a href="/profile/{{$list->user->id}}"><img src={{ $list->user->images }} alt="プロフィール画像"></a></td>
+               @endif
               <!-- usersテーブルの情報を取得するにはPostモデルで定義しているuserメソッドを経由してusersテーブルの情報を取得する必要がある。 -->
               <td>{{ $list->user->username }}</td>
 
