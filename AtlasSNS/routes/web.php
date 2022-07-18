@@ -36,8 +36,8 @@ Route::get('post/{id}/delete', 'PostsController@delete');
 
 Route::get('/logout','Auth\LoginController@logout');
 
-Route::get('/profile','UsersController@profile');
-Route::post('/profile','UsersController@updateProfile');
+Route::get('/my-profile','UsersController@myProfile');
+Route::post('/my-profile','UsersController@updateMyProfile');
 
 Route::get('/search','UsersController@searchPage');
 Route::post('/search','UsersController@search');
@@ -47,3 +47,5 @@ Route::post('/unfollow','UsersController@unfollow');
 
 Route::get('/follow-list','UsersController@followList');
 Route::get('/follower-list','UsersController@followerList');
+
+Route::get('/profile','UsersController@profile');

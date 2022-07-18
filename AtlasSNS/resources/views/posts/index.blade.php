@@ -29,7 +29,7 @@
         <table>
         @foreach ($lists as $list)
           <tr>
-               <td class="user-icon"><img src={{ $list->user->images }} alt="プロフィール画像"></td>
+               <td class="user-icon"><a href="/profile"><img src={{ $list->user->images }} alt="プロフィール画像"></a></td>
               <!-- usersテーブルの情報を取得するにはPostモデルで定義しているuserメソッドを経由してusersテーブルの情報を取得する必要がある。 -->
               <td>{{ $list->user->username }}</td>
 

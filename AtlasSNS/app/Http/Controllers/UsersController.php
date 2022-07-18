@@ -13,11 +13,11 @@ use Auth;
 class UsersController extends Controller
 {
     //
-    public function profile(){
-        return view('users.profile');
+    public function myProfile(){
+        return view('users.myProfile');
     }
 
-    public function updateProfile(ProfileFormRequest $request){
+    public function updateMyProfile(ProfileFormRequest $request){
         // dd('check');
         if($request->isMethod('post')){
             $request->session()->regenerate(); //セッションを再度設定。
@@ -168,4 +168,9 @@ class UsersController extends Controller
 
         return view('follows.followerList',['lists' => $list],['posts' => $post]);
     }
+
+    public function profile() {
+        return view('users.profile');
+    }
+
 }
