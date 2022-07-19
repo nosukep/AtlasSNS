@@ -1,10 +1,69 @@
 @charset "UTF-8";
 
-html{
-    height: 100%;
+html {
+    /* グラデーションの途切れ防止 */
+    min-height: 100%;
 }
 
-body{
+body {
     height: 100%;
-    background: #186AC9;
+    /* グラデーション */
+    background: linear-gradient(#187BD7, 70%, #E8DC48);
+}
+
+header {
+    color: #fff;
+    font-size: 32px;
+    width: 30%;
+    margin: 90px auto 60px auto;
+}
+
+header h1 {
+    text-align: center;
+}
+
+header img {
+    width: 150px;
+}
+
+header p {
+    text-align: center;
+}
+
+#container {
+    width: 320px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, .2);
+    padding: 30px 20px;
+    color: #fff;
+    border-radius: 10px;
+}
+
+#container p {
+    font-size: 18px;
+    text-align: center;
+}
+
+.login-title {
+    margin: 10px auto 30px auto;
+}
+
+input {
+    width: 100%;
+    border: #707070 1px solid;
+    border-radius: 5px;
+    margin: 10px 0 20px 0;
+    font-size: 22px;
+}
+
+a {
+    color: #fff;
+    font-size: 16px;
+}
+
+.btn {
+    width: 50%;
+    display: block;
+    margin: 0px 0px 40px auto;
+    padding: 10px 20px;
 }
