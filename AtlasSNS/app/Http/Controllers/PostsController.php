@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostFormRequest;
+use App\Http\Requests\PostUpdateRequest;
 use Illuminate\Support\Facades\DB;
 use Auth;
 use App\Post;
@@ -57,5 +58,18 @@ class PostsController extends Controller
             ->delete();
         return redirect('/top');
     }
+
+    public function update(PostUpdateRequest $request)
+    {
+        $id = $request->input('id');
+        $up_post = $request->input('upPost');
+        Post::where('id', $id)
+        ->update(
+            ['post' => $up_post]
+            );
+
+        return redirect('/top');
+    }
+
 
 }

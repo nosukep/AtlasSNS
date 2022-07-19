@@ -20,7 +20,7 @@
         <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+                <li>{{ $errors->first('newPost') }}</li>
             @endforeach
         </ul>
         </div>
@@ -40,11 +40,36 @@
               <td>{{ $list->post }}</td>
               <td>{{ $list->created_at }}</td>
               @if ($list->user->id == Auth::user()->id)
-              <td><a class="btn btn-primary" href="/post/{{$list->id}}/update-form"><img src="/storage/images/edit.png" alt="編集"></a></td>
+              <!-- <td><a class="btn btn-primary" href="/post/{{$list->id}}/update-form"><img src="/storage/images/edit.png" alt="編集"></a></td> -->
+              <td><a class="js-modal-open" href="" post="{{ $list->post }}" post_id="{{ $list->id }}"><img src="/storage/images/edit.png" alt="編集"></a></td>
               <td><a class="btn btn-danger" href="/post/{{$list->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')"><img src="/storage/images/trash.png" alt="削除"></a></td>
               @endif
           </tr>
         @endforeach
+        <!-- モーダルの中身 -->
+        <div class="modal js-modal">
+                    <div class="modal__bg js-modal-close"></div>
+        <div class="modal__content">
+           <form action="post/update" method="post">
+                <textarea name="upPost" class="modal_post"></textarea>
+                <input type="hidden" name="id" class="modal_id" value="">
+                <input type="submit" value="更新">
+                {{ csrf_field() }}
+           </form>
+           @if($errors->any())
+           <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $errors->first('upPost')}}</li>
+                @endforeach
+            </ul>
+           </div>
+            @endif
+
+           <a class="js-modal-close" href="">閉じる</a>
+            </div>
+        </div>
+
         </table>
     </div>
 
