@@ -78,6 +78,14 @@ a {
     padding: 10px 20px;
 }
 
+.btn a {
+    text-decoration: none;
+}
+
+.btn a:hover {
+    color: #fff;
+}
+
 .input {
     font-size: 16px;
     font-weight: 300;
@@ -90,4 +98,17 @@ a {
     /* ←fontスタイルを適用させるために必須 */
     font-size: 16px;
     font-weight: 200;
+}
+
+#clear p {
+    line-height: 2rem;
+}
+
+#clear .login-title {
+    font-weight: bold;
+}
+
+#clear .btn {
+    width: 60%;
+    margin: 40px auto 10px auto;
 }
