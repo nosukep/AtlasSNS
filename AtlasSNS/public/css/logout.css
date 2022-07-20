@@ -11,6 +11,16 @@ body {
     background: linear-gradient(#187BD7, 70%, #E8DC48);
 }
 
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+    /* ←fontスタイルを適用させるために必須 */
+    font-size: 16px;
+    font-weight: 200;
+}
+
 header {
     color: #fff;
     font-size: 32px;
@@ -66,4 +76,18 @@ a {
     display: block;
     margin: 0px 0px 40px auto;
     padding: 10px 20px;
+}
+
+.input {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 37px;
+}
+
+::placeholder {
+    color: #6C6C6C#6C6C6C;
+    font-family: inherit;
+    /* ←fontスタイルを適用させるために必須 */
+    font-size: 16px;
+    font-weight: 200;
 }
