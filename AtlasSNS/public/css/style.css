@@ -109,6 +109,8 @@ header {
     overflow: hidden;
     border: #fff solid 0px;
     transition: all .8s;
+    width: 20vw;
+    margin-left: auto;
 }
 
 .accordion.open ul {
@@ -116,6 +118,8 @@ header {
     border: #00297E solid 1px;
     border-top: 0px;
     transition: all .8s;
+    width: 20vw;
+    margin-left: auto;
 }
 
 .accordion li {
@@ -147,6 +151,11 @@ header {
 
 #container {
     flex: 0 0 80%;
+}
+
+.container {
+    max-width: 100%;
+    padding: 0;
 }
 
 /* side bar */
@@ -211,8 +220,13 @@ header {
 }
 
 
+.user-icon a {
+    display: block;
+}
+
 .user-icon img {
     width: 50px;
+    height: auto;
     margin-right: 10px;
 }
 
@@ -250,20 +264,37 @@ table {
     width: 100%;
 }
 
-table tbody tr {
+.posts {
+    border-top: 6px solid #E0E0E0;
+}
+
+.posts li {
+    display: flex;
+    justify-content: space-between;
     border-bottom: 1px solid #C1C1C1;
+    padding: 20px 40px 20px 120px;
+    font-size: 13px;
+    font-weight: 300;
 }
 
-table tbody tr .user-icon {
-    margin-left: 50px;
-}
-
-/* table tbody tr td {
-    display: inline-block;
-} */
-
-table td a img {
+li a img {
     height: 30px;
+}
+
+.posts-main {
+    width: 80%;
+    padding-top: 5px;
+}
+
+.posts-username {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.created-at div {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
 }
 
 /* table tbody tr {
@@ -315,6 +346,20 @@ table tbody tr td:first-child {
     top: 50%;
     transform: translate(-50%, -50%);
     width: 60%;
+    border-radius: 10px;
+}
+
+
+.js-modal form {
+    text-align: right;
+}
+
+.js-modal textarea {
+    width: 100%;
+    resize: none;
+    outline: none;
+    margin: 10px 0 20px 0;
+    font-weight: 300;
 }
 
 

@@ -12,7 +12,12 @@ use Auth;
 
 class UsersController extends Controller
 {
-    //
+    public function __construct()
+    {
+        $this->middleware('auth');
+        // ログインしていないユーザーがログイン後のページに移動しようとしたとき/loginに移動させる。
+    }
+
     public function myProfile(){
         return view('users.myProfile');
     }

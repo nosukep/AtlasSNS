@@ -26,51 +26,51 @@
         </div>
         @endif
 
-        <table>
+        <ul class="posts">
         @foreach ($lists as $list)
-          <tr>
+          <li>
                @if ($list->user->id == Auth::user()->id)
-               <td class="user-icon"><a href="/my-profile"><img src={{ $list->user->images }} alt="プロフィール画像"></a></td>
+               <div class="user-icon"><a href="/my-profile"><img src={{ $list->user->images }} alt="プロフィール画像"></a></div>
                @else
-               <td class="user-icon"><a href="/profile/{{$list->user->id}}"><img src={{ $list->user->images }} alt="プロフィール画像"></a></td>
+               <div class="user-icon"><a href="/profile/{{$list->user->id}}"><img src={{ $list->user->images }} alt="プロフィール画像"></a></div>
                @endif
               <!-- usersテーブルの情報を取得するにはPostモデルで定義しているuserメソッドを経由してusersテーブルの情報を取得する必要がある。 -->
-              <td>{{ $list->user->username }}</td>
-
-              <td>{{ $list->post }}</td>
-              <td>{{ $list->created_at }}</td>
+              <div class="posts-main">
+              <div class="posts-username">{{ $list->user->username }}</div>
+              <div class="posts-content">{{ $list->post }}</div>
+              </div>
+              <div class="created-at">{{ $list->created_at->format('Y-m-d H:m') }}
               @if ($list->user->id == Auth::user()->id)
               <!-- <td><a class="btn btn-primary" href="/post/{{$list->id}}/update-form"><img src="/storage/images/edit.png" alt="編集"></a></td> -->
-              <td><a class="js-modal-open" href="" post="{{ $list->post }}" post_id="{{ $list->id }}"><img src="/storage/images/edit.png" alt="編集"></a></td>
-              <td><a class="btn btn-danger" href="/post/{{$list->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')"><img src="/storage/images/trash.png" alt="削除"></a></td>
+              <div><a class="js-modal-open" href="" post="{{ $list->post }}" post_id="{{ $list->id }}"><img src="/storage/images/edit.png" alt="編集"></a>
+              <a class="" href="/post/{{$list->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')"><img src="/storage/images/trash.png" alt="削除"></a></div>
               @endif
-          </tr>
+              </div>
+          </li>
         @endforeach
         <!-- モーダルの中身 -->
         <div class="modal js-modal">
-                    <div class="modal__bg js-modal-close"></div>
-        <div class="modal__content">
-           <form action="post/update" method="post">
-                <textarea name="upPost" class="modal_post"></textarea>
-                <input type="hidden" name="id" class="modal_id" value="">
-                <input type="submit" value="更新">
-                {{ csrf_field() }}
-           </form>
-           @if($errors->any())
-           <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $errors->first('upPost')}}</li>
-                @endforeach
-            </ul>
-           </div>
-            @endif
-
-           <a class="js-modal-close" href="">閉じる</a>
+            <div class="modal__bg js-modal-close"></div>
+            <div class="modal__content">
+                <form action="post/update" method="post">
+                    <textarea name="upPost" class="modal_post" rows="10"></textarea>
+                    <input type="hidden" name="id" class="modal_id" value="">
+                    <input type="image" name="submit" src="/storage/images/edit.png" value="更新" width="40">
+                    {{ csrf_field() }}
+                </form>
+                @if($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $errors->first('upPost')}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
             </div>
         </div>
 
-        </table>
+        </ul>
     </div>
 
 
