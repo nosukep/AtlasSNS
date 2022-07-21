@@ -26,7 +26,7 @@
         </div>
         @endif
 
-        <ul class="posts">
+        <ul class="content">
         @foreach ($lists as $list)
           <li>
                @if ($list->user->id == Auth::user()->id)

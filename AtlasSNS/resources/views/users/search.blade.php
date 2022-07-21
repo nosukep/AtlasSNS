@@ -1,48 +1,53 @@
 @extends('layouts.login')
 
 @section('content')
-
-  <div id="search">
+<div id="search">
+  <div class="search-content">
+    <div>
       <div class="search-form-group">
           {!! Form::open(['url' => 'search']) !!}
           {!! Form::input('text', 'search', request('search'), ['required', 'class' => 'search-form', 'placeholder' => 'ユーザー名で検索',]) !!}
-      </div>
-      <div class="btn">
-          <button type="submit" class="btn btn-success pull-right"><i class="fa fa-search"></i></button>
+          <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+          </div>
           {!! Form::close() !!}
-      </div>
-      <a href="/search">一覧に戻る</a>
+    </div>
+    <div class="search-result">
       @if(!empty($username))
       {{ $username }}の検索結果
       @endif
+      <a href="/search">一覧に戻る</a>
+    </div>
   </div>
 
-        <table>
+        <ul class="content">
           @foreach ($lists as $list)
-          <tr>
-              <td class="user-icon"><a href="/profile/{{$list->id}}"><img src="{{ $list->images }}" alt=""></a></td>
-              <td>{{ $list->username }}</td>
+          <li>
+            <div class="search-wrapper">
+              <div class="user-icon"><a href="/profile/{{$list->id}}"><img src="{{ $list->images }}" alt=""></a></div>
+              <div class="user-name">{{ $list->username }}</div>
               <!-- ログインユーザーがisFollowingメソッドを使って各ユーザーをフォローしているかどうかを判断してボタンの表示を切り替える。 -->
               <!-- 「auth()->user()」はauthヘルパーの記述方法。「Auth::user()」（authファザード）と同義 -->
               @if (auth()->user()->isFollowing($list->id))
-              <td>
+              <div class="btn">
                 <form action="unfollow" method="post" class="unfollow-btn">
                 <input type="hidden" name="unfollowing_id" class="unfollowing_id" value="{{ $list->id }}">
-                <input type="submit" value="フォロー解除">
+                <input type="submit" class="btn btn-danger" value="フォロー解除">
                 {{ csrf_field() }}
                 </form>
-              </td>
+              </div>
               @else
-              <td>
+              <div  class="btn">
                 <form action="follow" method="post" class="follow-btn">
                 <input type="hidden" name="following_id" class="following_id" value="{{ $list->id }}">
-                <input type="submit" value="フォローする">
+                <input type="submit" class="btn btn-primary" value="フォローする">
                 {{ csrf_field() }}
                 </form>
-              </td>
+              </div>
               @endif
-          </tr>
-          @endforeach
-        </table>
+            </div>
+          </li>
 
+          @endforeach
+        </ul>
+</div>
 @endsection

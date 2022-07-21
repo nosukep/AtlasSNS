@@ -22,6 +22,12 @@ textarea {
     font-weight: 200;
 }
 
+.btn {
+    border-radius: 6px;
+    padding: 7px 20px;
+    font-size: 13px;
+    color: #fff;
+}
 
 
 /* header */
@@ -109,7 +115,7 @@ header {
     overflow: hidden;
     border: #fff solid 0px;
     transition: all .8s;
-    width: 20vw;
+    width: 19.8vw;
     margin-left: auto;
 }
 
@@ -118,7 +124,7 @@ header {
     border: #00297E solid 1px;
     border-top: 0px;
     transition: all .8s;
-    width: 20vw;
+    width: 19.8vw;
     margin-left: auto;
 }
 
@@ -170,21 +176,14 @@ header {
 }
 
 #side-bar .btn {
-    width: 50%;
+    width: 55%;
     margin: 0px 0px 40px auto;
-    padding: 5px 10px;
-    font-size: 13px;
 }
 
 #side-bar .search-btn {
     display: block;
     width: 50%;
     margin: 30px auto 0 auto;
-}
-
-.btn {
-    color: #fff;
-    font-size: 16px;
 }
 
 .btn a:hover {
@@ -264,11 +263,11 @@ table {
     width: 100%;
 }
 
-.posts {
+.content {
     border-top: 6px solid #E0E0E0;
 }
 
-.posts li {
+.content li {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #C1C1C1;
@@ -318,11 +317,6 @@ table tbody tr td:first-child {
 
 /* 更新用フォーム */
 
-.content {
-    margin: 0 auto;
-    padding: 40px;
-}
-
 .modal {
     display: none;
     height: 100vh;
@@ -363,6 +357,69 @@ table tbody tr td:first-child {
 }
 
 
-#search {
+.search-content {
     display: flex;
+    margin: 50px 0 50px 50px;
+    justify-content: space-between;
+}
+
+.search-form-group form {
+    display: flex;
+}
+
+.search-form {
+    width: 100%;
+    border: #707070 1px solid;
+    border-radius: 2px;
+    font-size: 22px;
+    padding: 5px 10px;
+}
+
+.search-content .btn {
+    margin: 0 20px;
+    font-size: 20px;
+    padding: 0px 12px;
+}
+
+.search-result {
+    font-size: 22px;
+    margin: auto;
+}
+
+.search-result a {
+    margin-left: 20px;
+}
+
+.search-wrapper {
+    width: 50%;
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.search-wrapper .user-name {
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.search-wrapper .btn {
+    margin-left: auto;
+}
+
+#search .content {
+    padding: 20px 0;
+}
+
+#search .content li {
+    border: none;
+}
+
+#search .content li .btn-primary {
+    background-color: #51ACFF;
+    border-color: #51ACFF;
+}
+
+#search .content li .btn-danger {
+    background-color: #ED3933;
+    border-color: #ED3933;
 }
