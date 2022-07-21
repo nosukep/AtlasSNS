@@ -31,8 +31,11 @@
         <!-- ↑ターミナルからシンボリックリンクの設定が必要 -->
             <div class="accordion">
                 <div class="menu" onclick="toggle()">
+                <div class="menu-box">
                 <!-- ↓Authファザードでログイン中のユーザー情報の中のusernameを取得 -->
-                <p>{{ Auth::user()->username }}さん<span class="accordion-arrow"></span><img class="accordion-icon" src={{ Auth::user()->images }}  alt="プロフィール画像"></p>
+                <p>{{ Auth::user()->username }}さん<span class="accordion-arrow"></span></p>
+                <img class="accordion-icon" src={{ Auth::user()->images }}  alt="プロフィール画像">
+                </div>
                 <div>
                 <ul class="menu-list">
                     <li><a href="/top">HOME</a></li>
