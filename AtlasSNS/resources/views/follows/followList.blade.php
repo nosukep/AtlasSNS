@@ -6,25 +6,27 @@
   <h1>Follow List</h1>
   <ul class="follow-images">
     @foreach ($lists as $list)
-    <li>{{ $list->username }}</li>
     <li><a href="/profile/{{$list->id}}"><img src={{ $list->images }} alt="プロフィール画像{{ $list->id }}"></a></li>
     @endforeach
   </ul>
 </div>
 
 <div id="follow-list-posts">
- <table>
+ <ul class="content">
         @foreach ($posts as $post)
+        <li>
         @if (auth()->user()->isFollowing($post->user->id))
-          <tr>
-              <td class="user-icon"><a href="/profile/{{$post->user->id}}"><img src="{{ $post->user->images }}" alt=""></a></td>
-              <td class="">{{ $post->user->username }}</td>
-              <td class="">{{ $post->post }}</td>
-              <td class="">{{ $post->created_at }}</td>
-          </tr>
+              <div class="user-icon"><a href="/profile/{{$post->user->id}}"><img src="{{ $post->user->images }}" alt="プロフィール画像"></a></div>
+              <div class="posts-main">
+                <div class="posts-username">{{ $post->user->username }}</div>
+                <div class="posts-content">{{ $post->post }}</div>
+              </div>
+              <div class="created-at">{{ $post->created_at->format('Y-m-d H:m') }}</div>
         @endif
+        </li>
         @endforeach
-</table>
+
+ </ul>
 </div>
 
 

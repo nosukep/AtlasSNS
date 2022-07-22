@@ -423,3 +423,27 @@ table tbody tr td:first-child {
     background-color: #ED3933;
     border-color: #ED3933;
 }
+
+#follow-list-images {
+    display: flex;
+    width: 80%;
+    margin: 30px auto;
+}
+
+#follow-list-images h1 {
+    width: 20%;
+    font-size: 26px;
+}
+
+.follow-images {
+    display: flex;
+}
+
+#follow-list-images li {
+    margin: 0 0 10px 10px;
+}
+
+#follow-list-images li a img {
+    width: 50px;
+    height: auto;
+}
