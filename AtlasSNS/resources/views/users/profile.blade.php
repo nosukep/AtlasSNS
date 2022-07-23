@@ -2,44 +2,57 @@
 
 @section('content')
 
-<table>
-  @foreach ($users as $user)
-  <tr>
-      <td class="user-icon"><img src={{ $user->images }} alt="プロフィール画像"></td>
-      <td>name</td>
-      <td>{{ $user->username }}</td>
-      <td>bio</td>
-      <td>{{ $user->bio }}</td>
+
+@foreach ($users as $user)
+  <div class="profile">
+      <div class="user-icon">
+        <img src={{ $user->images }} alt="プロフィール画像">
+      </div>
+      <div class="profile-content-wrapper">
+        <div class="profile-content">
+          <p class="profile-content-title">name</p>
+          <p>{{ $user->username }}</p>
+        </div>
+        <div  class="profile-content">
+          <p class="profile-content-title">bio</p>
+          <p>{{ $user->bio }}</p>
+        </div>
+      </div>
       @if (auth()->user()->isFollowing($user->id))
-        <td>
+        <div class="follow-btn">
           <form action="/unfollow" method="post" class="unfollow-btn">
           <input type="hidden" name="unfollowing_id" class="unfollowing_id" value="{{ $user->id }}">
-          <input type="submit" value="フォロー解除">
+          <input type="submit" class="btn btn-danger" value="フォロー解除">
           {{ csrf_field() }}
           </form>
-        </td>
+        </div>
         @else
-        <td>
-          <form action="/follow" method="post" class="follow-btn">
+        <div class="follow-btn">
+          <form action="/follow" method="post" class="">
           <input type="hidden" name="following_id" class="following_id" value="{{ $user->id }}">
-          <input type="submit" value="フォローする">
+          <input type="submit" class="btn btn-primary" value="フォローする">
           {{ csrf_field() }}
           </form>
-        </td>
+        </div>
       @endif
-  </tr>
+  </div>
   @endforeach
-</table>
 
-<table>
+<div id="follow-list-posts">
+  <ul class="content">
   @foreach ($posts as $post)
-  <tr>
-      <td class="user-icon"><img src={{ $post->user->images }} alt="プロフィール画像"></td>
-      <td>{{ $post->user->username }}</td>
-      <td>{{ $post->post }}</td>
-      <td>{{ $post->created_at }}</td>
-  </tr>
+  <li>
+    <div class="user-icon">
+      <img src={{ $post->user->images }} alt="プロフィール画像">
+    </div>
+    <div class="posts-main">
+      <div class="posts-username">{{ $post->user->username }}</div>
+      <div class="posts-content">{{ $post->post }}</div>
+    </div>
+    <div class="created-at">{{ $post->created_at->format('Y-m-d H:m') }}</div>
+  </li>
   @endforeach
-</table>
+  </ul>
+</div>
 
 @endsection
