@@ -356,6 +356,7 @@ table tbody tr td:first-child {
     font-weight: 300;
 }
 
+/* ユーザー検索 */
 
 .search-content {
     display: flex;
@@ -424,6 +425,8 @@ table tbody tr td:first-child {
     border-color: #ED3933;
 }
 
+/* フォローリスト/フォロワーリスト */
+
 #follow-list-images {
     display: flex;
     width: 80%;
@@ -447,6 +450,8 @@ table tbody tr td:first-child {
     width: 50px;
     height: auto;
 }
+
+/* プロフィールページ */
 
 .profile {
     display: flex;
@@ -472,4 +477,50 @@ table tbody tr td:first-child {
     width: 30%;
     margin-top: auto;
     margin-bottom: 20px;
+}
+
+/* プロフィール編集ページ */
+
+.my-profile-wrapper {
+    width: 70%;
+    display: flex;
+    margin: 60px auto;
+    font-size: 20px;
+}
+
+.my-profile-wrapper label {
+    display: inline-block;
+    width: 30%;
+    margin: 15px 30px 50px 30px;
+}
+
+.my-profile-wrapper .input,
+#password,
+#password_confirmation {
+    display: inline-block;
+    width: 55%;
+    font-size: 20px;
+    background-color: #EFEFEF;
+    border: #B8B8B8 1px solid;
+    padding: 5px;
+}
+
+.my-profile-wrapper #images {
+    display: inline-block;
+    width: 55%;
+    font-size: 20px;
+    background-color: #EFEFEF;
+    border: #B8B8B8 1px solid;
+    padding: 30px;
+}
+
+.my-profile-wrapper .btn {
+    font-size: 16px;
+    padding: 7px 60px;
+}
+
+.my-profile-btn {
+    display: block;
+    margin-top: 50px;
+    text-align: center;
 }
