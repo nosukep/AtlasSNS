@@ -13,10 +13,10 @@
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
-    <link rel="icon" href="/storage/images/atlas.png" sizes="16x16" type="image/png" />
-    <link rel="icon" href="/storage/images/atlas.png" sizes="32x32" type="image/png" />
-    <link rel="icon" href="/storage/images/atlas.png" sizes="48x48" type="image/png" />
-    <link rel="icon" href="/storage/images/atlas.png" sizes="62x62" type="image/png" />
+    <link rel="icon" href="/images/atlas.png" sizes="16x16" type="image/png" />
+    <link rel="icon" href="/images/atlas.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="/images/atlas.png" sizes="48x48" type="image/png" />
+    <link rel="icon" href="/images/atlas.png" sizes="62x62" type="image/png" />
     <!--iphoneのアプリアイコン指定-->
     <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     <!--OGPタグ/twitterカード-->
@@ -26,7 +26,7 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a href="/top"><img class="site-logo" src="/storage/images/atlas.png" alt="サイトロゴ"></a></h1>
+        <h1><a href="/top"><img class="site-logo" src="/images/atlas.png" alt="サイトロゴ"></a></h1>
         <!-- img src="{{ asset('storage/images/atlas.png') }}"でも可 -->
         <!-- ↑ターミナルからシンボリックリンクの設定が必要 -->
             <div class="accordion">

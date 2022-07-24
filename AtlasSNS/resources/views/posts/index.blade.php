@@ -11,7 +11,7 @@
                 {!! Form::textarea('newPost', null, ['required', 'class' => 'post-form', 'placeholder' => '投稿内容を入力してください', 'rows' => 3,]) !!}
             </div>
             <div class="form-btn">
-                <button type="submit" class="btn btn-success pull-right"><img src="/storage/images/post.png" alt="送信"></button>
+                <button type="submit" class="btn btn-success pull-right"><img src="/images/post.png" alt="送信"></button>
                 {!! Form::close() !!}
             </div>
         </div>
@@ -42,8 +42,8 @@
               <div class="created-at">{{ $list->created_at->format('Y-m-d H:m') }}
               @if ($list->user->id == Auth::user()->id)
               <!-- <td><a class="btn btn-primary" href="/post/{{$list->id}}/update-form"><img src="/storage/images/edit.png" alt="編集"></a></td> -->
-              <div><a class="js-modal-open" href="" post="{{ $list->post }}" post_id="{{ $list->id }}"><img src="/storage/images/edit.png" alt="編集"></a>
-              <a class="" href="/post/{{$list->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')"><img src="/storage/images/trash.png" alt="削除"></a></div>
+              <div><a class="js-modal-open" href="" post="{{ $list->post }}" post_id="{{ $list->id }}"><img src="/images/edit.png" alt="編集"></a>
+              <a class="" href="/post/{{$list->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')"><img src="/images/trash.png" alt="削除"></a></div>
               @endif
               </div>
           </li>
