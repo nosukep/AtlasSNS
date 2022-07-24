@@ -25,9 +25,9 @@ class ProfileFormRequest extends FormRequest
     {
         return [
             'username' => 'required|string|min:2|max:12',
-            'mail' => 'required|string|email|min:5|max:40',// usersテーブルで同一の値がないか
+            'mail' => 'required|string|email|min:5|max:40|unique:users,mail,'.$this->id.',id',// usersテーブルで同一の値がないか
             'bio' => 'max:150',
-            'password' => 'nullable|min:4|confirmed',
+            'password' => 'nullable|min:8|max:20|alpha_dash|confirmed',
             'images' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:1024'
         ];
     }
@@ -61,8 +61,11 @@ class ProfileFormRequest extends FormRequest
             'mail.max' => ':attributeは40字以下で入力してください。',
             'mail.min' => ':attributeは5字以上で入力してください。',
             'mail.email' => ':attributeはメールアドレスの形式入力してください。',
+            'mail.unique' => 'この:attributeはすでに登録されています。',
             'bio.max' => ':attributeは150字以下で入力してください。',
-            'password.min' => ':attributeは4文字以上で入力してください。',
+            'password.min' => ':attributeは8文字以上で入力してください。',
+            'password.max' => ':attributeは20文字以上で入力してください。',
+            'password.alpha_dash' => ':attributeは英数字のみで入力してください。',
             'password.confirmed' => ':attributeが一致しません。',
             "images.image" => "指定されたファイルが画像ではありません。",
             "mimes" => "プロフィール画像は（PNG/JPG/GIF）形式のファイルを使用してください。",

@@ -10,31 +10,39 @@
 
 {{ Form::label('username','ユーザー名') }}
 {{ Form::text('username',null,['class' => 'input','placeholder' => 'username']) }}
-@if($errors->has('username'))
-<div class="alert alert-danger">
-  {{ $errors->first('username') }}
-</div>
-@endif
+    @if($errors->has('username'))
+      <div class="alert alert-danger">
+      <ul>
+          @foreach ($errors->get('username') as $error)
+              <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+      </div>
+    @endif
 
 {{ Form::label('mail','メールアドレス') }}
 {{ Form::text('mail',null,['class' => 'input','placeholder' => 'mail@address.com']) }}
-@if($errors->has('mail'))
-<div class="alert alert-danger">
-  {{ $errors->first('mail') }}
-</div>
-@endif
+    @if($errors->has('mail'))
+      <div class="alert alert-danger">
+      <ul>
+          @foreach ($errors->get('mail') as $error)
+              <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+      </div>
+    @endif
 
 {{ Form::label('password','パスワード') }}
 {{ Form::password('password',null,['class' => 'input']) }}
-@if($errors->has('password'))
-  <div class="alert alert-danger">
-  <ul>
-      @foreach ($errors->get('password') as $error)
-          <li>{{ $error }}</li>
-      @endforeach
-  </ul>
-  </div>
-@endif
+    @if($errors->has('password'))
+      <div class="alert alert-danger">
+      <ul>
+          @foreach ($errors->get('password') as $error)
+              <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+      </div>
+    @endif
 
 {{ Form::label('password_confirmation','パスワード確認') }}
 {{ Form::password('password_confirmation',null,['class' => 'input']) }}

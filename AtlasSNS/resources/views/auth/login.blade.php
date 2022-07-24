@@ -11,6 +11,16 @@
 {{ Form::label('password') }}<br>
 {{ Form::password('password',['class' => 'input']) }}
 
+@if ($errors->all())
+  <div class="alert alert-danger">
+      <ul>
+          @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+  </div>
+@endif
+
 {{ Form::submit('ログイン',['class' => 'btn btn-danger']) }}
 
 <p><a href="/register">新規ユーザーの方はこちら</a></p>
